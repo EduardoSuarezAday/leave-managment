@@ -13,7 +13,8 @@ namespace leave_managment.Models
         [Required]
         public string Name { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        [Display(Name = "Date Created")]
+        public DateTime? DateCreated { get; set; }
 
     }
 }
