@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Core Leave Managemnet</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -26,17 +30,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Apply for Leave</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manage
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="LeaveType" asp-action="Index">Leave Types</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Manage
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="LeaveType" asp-action="Index">Leave Types</a>
+                                    <a class="dropdown-item" href="#">Leave Allocation</a>
+                                    <a class="dropdown-item" href="#">Leave History</a>
+                                    <a class="dropdown-item" href="#">Employee</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>
@@ -55,6 +65,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
