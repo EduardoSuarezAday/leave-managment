@@ -43,7 +43,7 @@ namespace leave_managment
             services.AddAutoMapper(typeof(Maps));
          
             // add service identity role to 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<Employee>()
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
@@ -52,7 +52,7 @@ namespace leave_managment
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-                /*add => */  UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+                /*add => */  UserManager<Employee> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {

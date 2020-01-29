@@ -7,7 +7,7 @@ namespace leave_managment.Models
 {
     public class EmployeeVM
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         
         public string UserName { get; set; }
 
