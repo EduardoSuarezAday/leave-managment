@@ -6,6 +6,13 @@
     <RootNamespace>leave_managment</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200130180627_01302020.1.cs" />
+    <Compile Remove="Data\Migrations\20200130180627_01302020.1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200130181500_01302020.1.cs" />
+    <Compile Remove="Data\Migrations\20200130181500_01302020.1.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />

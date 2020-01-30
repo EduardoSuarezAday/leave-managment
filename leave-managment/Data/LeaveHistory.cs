@@ -23,7 +23,7 @@ namespace leave_managment.Data
 
         [ForeignKey("LeaveTypeId")]
         public LeaveType LeaveType { get; set; }
-        
+
         public int LeaveTypeId { get; set; }
 
         public DateTime DateRequested { get; set; }
@@ -36,9 +36,5 @@ namespace leave_managment.Data
         public Employee ApprovedBy { get; set; }
 
         public string ApprovedById { get; set; }
-
-
-
-
     }
 }
