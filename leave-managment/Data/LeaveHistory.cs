@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,8 +28,6 @@ namespace leave_managment.Data
         public int LeaveTypeId { get; set; }
 
         public DateTime DateRequested { get; set; }
-
-        public DateTime DateActioned { get; set; }
 
         public bool? Approved { get; set; }
 

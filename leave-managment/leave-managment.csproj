@@ -11,6 +11,10 @@
     <Compile Remove="Data\Migrations\20200130180627_01302020.1.Designer.cs" />
     <Compile Remove="Data\Migrations\20200130181500_01302020.1.cs" />
     <Compile Remove="Data\Migrations\20200130181500_01302020.1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200131160745_01312020.2.cs" />
+    <Compile Remove="Data\Migrations\20200131160745_01312020.2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200131191615_01312020.2.cs" />
+    <Compile Remove="Data\Migrations\20200131191615_01312020.2.Designer.cs" />
   </ItemGroup>
 
 

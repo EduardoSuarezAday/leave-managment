@@ -1,0 +1,115 @@
+﻿@model AdminLeaveHistoryViewVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+    <div class=" col-md-3">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card-header text-center">@Html.DisplayNameFor(m => m.TotalRequests)</div>
+            <div class="card-body text-center">
+                <h1 class="card-title">@Model.TotalRequests</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class=" col-md-3">
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+            <div class="card-header text-center">@Html.DisplayNameFor(m => m.PendingRequests)</div>
+            <div class="card-body text-center">
+                <h1 class="card-title">@Model.PendingRequests</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class=" col-md-3">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header text-center">@Html.DisplayNameFor(m => m.AprovedRequests)</div>
+            <div class="card-body text-center">
+                <h1 class="card-title">@Model.AprovedRequests</h1>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-3">
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header text-center">@Html.DisplayNameFor(m => m.RejectedRequests)</div>
+            <div class="card-body text-center">
+                <h1 class="card-title">@Model.RejectedRequests</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<hr />
+<h1>Leave Request Log</h1>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Leave Type
+            </th>
+            <th>
+                Date Requested
+            </th>
+            <th>
+                Approved Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LeaveHistories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestingEmployee.FirstName) @Html.DisplayFor(modelItem => item.RequestingEmployee.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRequested)
+                </td>
+                <td>
+                    @if (item.Approved == true)
+                    {<span class="badge badge-success">Approved</span>}
+                    else if (item.Approved == false)
+                    {<span class="badge badge-danger">Rejected</span>}
+                    else
+                    {<span class="badge badge-warning">Pending Approval</span>}
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

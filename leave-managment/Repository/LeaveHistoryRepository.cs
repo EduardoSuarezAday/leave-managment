@@ -1,5 +1,6 @@
 ﻿using leave_managment.Contracts;
 using leave_managment.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,20 @@ namespace leave_managment.Repository
 
         public ICollection<LeaveHistory> FindAll()
         {
-            return _dbContext.LeaveHistories.ToList();
+            return _dbContext.LeaveHistories
+                .Include(q => q.RequestingEmployee)
+                .Include(q => q.LeaveType)
+                .Include(q => q.ApprovedBy)
+                .ToList();
         }
 
         public LeaveHistory FindById(int id)
         {
-            return _dbContext.LeaveHistories.Find(id);
+            return _dbContext.LeaveHistories
+                .Include(q => q.RequestingEmployee)
+                .Include(q => q.LeaveType)
+                .Include(q => q.ApprovedBy)
+                .FirstOrDefault(q => q.Id == id);
         }
 
         public bool IsExists(int id)
