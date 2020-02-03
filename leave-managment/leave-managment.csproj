@@ -15,6 +15,12 @@
     <Compile Remove="Data\Migrations\20200131160745_01312020.2.Designer.cs" />
     <Compile Remove="Data\Migrations\20200131191615_01312020.2.cs" />
     <Compile Remove="Data\Migrations\20200131191615_01312020.2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200131192300_01312020.2.cs" />
+    <Compile Remove="Data\Migrations\20200131192300_01312020.2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200203200550_02032020.cs" />
+    <Compile Remove="Data\Migrations\20200203200550_02032020.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200203200853_02032020.cs" />
+    <Compile Remove="Data\Migrations\20200203200853_02032020.Designer.cs" />
   </ItemGroup>
 
 
@@ -28,7 +34,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
 </Project>
